@@ -1,0 +1,7 @@
+.flex-container{
+    display:grid;
+    justify-content: space-around;
+    grid-template-columns: 15% 85%;
+    /* width: 100%; */
+    /* flex-wrap: nowrap; */
+}

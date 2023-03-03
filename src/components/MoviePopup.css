@@ -1,0 +1,71 @@
+.movie-popup {
+  position: fixed;
+  top: 0;
+  left: 10;
+  width: 50%;
+  height: 50%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+.movie-popup.hide {
+  display: none;
+}
+
+.movie-popup-content {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.movie-popup img {
+  width: 20%;
+  height: 20%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.movie-popup__title {
+  font-size: 2rem;
+  margin: 10px 0;
+  color: #fff;
+}
+
+.movie-popup__description {
+  font-size: 1.2rem;
+  margin: 10px 0;
+  color: #fff;
+  /* opacity: 0; */
+}
+
+.movie-popup__button-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.movie-popup__wishlist-button,
+.movie-popup__book-button {
+  background-color: #f1356d;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.movie-popup__wishlist-button:hover,
+.movie-popup__book-button:hover {
+  background-color: #d81b60;
+}

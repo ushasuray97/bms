@@ -1,0 +1,129 @@
+/* Checkout container */
+.checkout-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 2rem;
+  padding: 2rem;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.25);
+}
+
+/* Checkout heading */
+.checkout-heading {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+/* Checkout form */
+.checkout-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* Checkout form input */
+.checkout-form input {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.1);
+}
+
+/* Checkout form select */
+.checkout-form select {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.1);
+}
+
+/* Checkout form label */
+.checkout-form label {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Checkout form button */
+.checkout-form button {
+  padding: 1rem;
+  margin-top: 1rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #2ecc71;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Checkout summary */
+.checkout-summary {
+  margin-top: 2rem;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* Checkout summary table heading */
+.checkout-summary th {
+  background-color: #2ecc71;
+  color: #fff;
+  padding: 1rem;
+}
+
+/* Checkout summary table row */
+.checkout-summary tr {
+  border-bottom: 1px solid #ccc;
+}
+
+/* Checkout summary table cell */
+.checkout-summary td {
+  padding: 1rem;
+}
+
+/* Checkout summary total row */
+.checkout-summary .total-row {
+  font-weight: bold;
+}
+
+/* Checkout summary total cell */
+.checkout-summary .total-cell {
+  border-top: 2px solid #2ecc71;
+  font-size: 1.2rem;
+}
+
+/* Checkout summary convenience fee */
+.checkout-summary .convenience-fee {
+  color: #888;
+}
+
+/* Checkout payment */
+.checkout-payment {
+  margin-top: 2rem;
+  width: 100%;
+}
+
+/* Checkout payment label */
+.checkout-payment label {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Checkout payment input */
+.checkout-payment input {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.1);
+}
+
+/* Checkout payment select */
+.checkout-payment select {
+}
