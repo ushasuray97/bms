@@ -11,7 +11,7 @@ function SearchBar({ handleSearch }) {
     return delayedSearch.cancel;
   }, [searchTerm, delayedSearch]);
 
-  const handleChange = (event) => {
+  handleChange = (event) => {
     setSearchTerm(event.target.value);
   };
 
