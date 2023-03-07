@@ -1,6 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import SearchIcon from '@mui/icons-material/Search';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 function Navbar() {
   return (
     <nav className="navbar">
@@ -11,16 +14,18 @@ function Navbar() {
         <div className="navbar-search">
           <input type="text" placeholder="Search movies" />
           <button>
-            <i className="fas fa-search"></i>
+            Search
           </button>
         </div>
         <div className="navbar-icons">
           <Link to="/wishlist">
-            <i className="fas fa-heart"></i>
+            <FavoriteIcon/>
           </Link>
           <div className="navbar-user">
-            <i className="fas fa-user-circle"></i>
+            <Link to="/userProfile">
+            <AccountCircleIcon/>
             <span>User</span>
+            </Link>
           </div>
         </div>
       </div>

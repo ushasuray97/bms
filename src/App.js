@@ -12,6 +12,7 @@ import NowPlaying from './components/MovieCard';
 import LoginForm from './components/Login';
 import Register from './components/Register';
 import Confirm from './components/Confirm';
+import UserProfile from './components/UserProfile';
 function App() {
   
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -30,6 +31,7 @@ function App() {
           <Route path='/register' element={<Register setIsLoggedIn={setIsLoggedIn} />} />
           {/* <Route path="/seatbooking/:id" element={<SeatBooking isLoggedIn={isLoggedIn} />} /> */}
           <Route path="/checkout" element={<Checkout isLoggedIn={isLoggedIn} />} />
+          <Route path="/userProfile" element={<UserProfile isLoggedIn={isLoggedIn} />} />
           <Route path='/confirm' element={<Confirm/>}/>
         </Routes>
       

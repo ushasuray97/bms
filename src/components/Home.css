@@ -5,3 +5,12 @@
     /* width: 100%; */
     /* flex-wrap: nowrap; */
 }
+.genres{
+    padding: 10px;
+    border-top:0.5px solid black ;
+    border-right: 0.5px solid black;
+}
+
+.movies{
+    margin-left: 10px;
+}

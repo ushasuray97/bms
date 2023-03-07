@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './MovieCard.css';
 import MoviePopup from './MoviePopup';
 
-function MovieCard({ movie }) {
+function MovieCard({ movie ,isLoggedIn}) {
   const imageUrl = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
   const [rating, setRating] = useState(null);
   const [showPopup, setShowPopup] = useState(false);
@@ -19,6 +19,9 @@ function MovieCard({ movie }) {
     fetchRating();
   }, [movie.id]);
 
+  const handleClose=()=>{
+    setShowPopup(false);
+  }
   return (
     <div className="movie-card">
       <img src={imageUrl} alt={movie.title} onClick={() => setShowPopup(true)} />
@@ -27,12 +30,12 @@ function MovieCard({ movie }) {
         {/* <span>{movie.original_language.toUpperCase()}</span>
         {rating && <span className="movie-rating">{rating}</span>} */}
       </div>
-      {showPopup && <MoviePopup movie={movie} />}
+      {showPopup && <MoviePopup movie={movie} onClose={handleClose}/>}
     </div>
   );
 }
 
-function NowPlaying() {
+function NowPlaying(isLoggedIn, selectedGenre) {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
@@ -51,7 +54,9 @@ function NowPlaying() {
       <h2>Now Playing</h2>
       <div className="movie-grid">
         {movies.length > 0 ? (
-          movies.map((movie) => <MovieCard key={movie.id} movie={movie} />)
+          movies.map((movie) => (
+            <MovieCard key={movie.id} movie={movie} isLoggedIn={isLoggedIn} selectedGenre={selectedGenre} />
+          ))
         ) : (
           <p>Loading...</p>
         )}
@@ -59,5 +64,6 @@ function NowPlaying() {
     </div>
   );
 }
+
 
 export default NowPlaying;

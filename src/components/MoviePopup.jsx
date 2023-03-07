@@ -38,8 +38,8 @@ function MoviePopup({ movie, onClose }) {
         </button>
         <img src={imageUrl} alt={movie.title} />
         <div className="movie-info">
-          <h3>{movie.title}</h3>
-          <p>{movie.overview}</p>
+          <h3 className='movie-popup__title'>{movie.title}</h3>
+          <p className='movie-popup__description'>{movie.overview}</p>
           <div className="popup-actions">
             <button>Add to Wishlist</button>
             <button onClick={handleBookTickets}>Book Tickets</button>
