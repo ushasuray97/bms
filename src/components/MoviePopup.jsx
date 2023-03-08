@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './MoviePopup.css';
 
-function MoviePopup({ movie, onClose }) {
+function MoviePopup({ movie, onClose ,isLoggedIn}) {
   const [showPopup, setShowPopup] = useState(true);
-  const [isLoggedIn, setIsLoggedIn] = useState(false); // initially, user is not logged in
+  // const [isLoggedIn, setIsLoggedIn] = useState(false); // initially, user is not logged in
 
   const imageUrl = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
 
@@ -15,10 +15,10 @@ function MoviePopup({ movie, onClose }) {
   };
 
   const handleBookTickets = () => {
+    console.log(isLoggedIn);
     if (isLoggedIn) {
       // User is logged in, allow booking tickets
       // Insert your booking tickets logic here
-      setIsLoggedIn(true);
       console.log('Book tickets for:', movie.title);
       navigate(`/booking/${movie.title}`);
     } else {
@@ -27,7 +27,6 @@ function MoviePopup({ movie, onClose }) {
       // Insert your redirect logic here
       navigate('/login');
     }
-    // navigate('/booking');
   };
 
   return (

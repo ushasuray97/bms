@@ -1,63 +1,84 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import './Checkout.css';
 
-const CheckoutPage = ({ movieTitle, ticketPrice }) => {
-  const [ticketCount, setTicketCount] = useState(1);
-  const convenienceFeeRate = 0.0175; // 1.75%
-  const convenienceFee = (ticketCount * ticketPrice * convenienceFeeRate).toFixed(2);
-  const subtotal = (ticketCount * ticketPrice + Number(convenienceFee)).toFixed(2);
+const CheckoutPage = ({ movieName, ticketPrice, onCheckoutSubmit }) => {
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [email, setEmail] = useState('');
+  const [numTickets, setNumTickets] = useState(1);
+  console.log(ticketPrice);
+  const convenienceFee = (numTickets * ticketPrice) * 0.0175;
+  const subtotal = numTickets * (ticketPrice || 0) + convenienceFee;
 
-  const handleTicketCountChange = (e) => {
-    const count = e.target.value;
-    if (count >= 1) {
-      setTicketCount(count);
-    }
+  const navigate=useNavigate();
+  const handleFirstNameChange = (event) => {
+    setFirstName(event.target.value);
+  };
+
+  const handleLastNameChange = (event) => {
+    setLastName(event.target.value);
+  };
+
+  const handleEmailChange = (event) => {
+    setEmail(event.target.value);
+  };
+
+  const handleNumTicketsChange = (event) => {
+    setNumTickets(event.target.value);
+  };
+
+  const handleCheckoutSubmit = (event) => {
+    event.preventDefault();
+    // onCheckoutSubmit({
+    //   firstName,
+    //   lastName,
+    //   email,
+    //   numTickets,
+    //   subtotal,
+    // });
+    alert("Your seats are Booked");
+    navigate('/');
   };
 
   return (
     <div className="checkout-page">
       <div className="summary-section">
-        <h2>Summary</h2>
-        <p>{movieTitle}</p>
-        <p>Ticket price: ${ticketPrice}</p>
-        <label htmlFor="ticket-count">Number of tickets:</label>
-        <input
-          type="number"
-          id="ticket-count"
-          min="1"
-          value={ticketCount}
-          onChange={handleTicketCountChange}
-        />
-        <p>Convenience fee: ${convenienceFee}</p>
-        <h3>Subtotal: ${subtotal}</h3>
+        <h2>Order Summary</h2>
+        <p>Movie: {movieName}</p>
+        <p>Ticket Price: ${ticketPrice.toFixed(2)}</p>
+        <label>
+          Number of Tickets:
+          <input type="number" value={numTickets} min="1" onChange={handleNumTicketsChange} />
+        </label>
+        <p>Convenience Fee: ${convenienceFee.toFixed(2)}</p>
+        <h3>Subtotal: ${subtotal.toFixed(2)}</h3>
       </div>
       <div className="payment-section">
-        <h2>Payment</h2>
-        <form>
-          <div className="form-group">
-            <label htmlFor="firstName">First Name:</label>
-            <input type="text" id="firstName" required />
-          </div>
-          <div className="form-group">
-            <label htmlFor="lastName">Last Name:</label>
-            <input type="text" id="lastName" required />
-          </div>
-          <div className="form-group">
-            <label htmlFor="email">Email:</label>
-            <input type="email" id="email" required />
-          </div>
-          <div className="form-group">
-            <label htmlFor="paymentMethod">Payment Method:</label>
-            <select id="paymentMethod" required>
-              <option value="">Select payment method</option>
-              <option value="creditCard">Credit Card</option>
-              <option value="paypal">Paypal</option>
+        <h2>Payment Information</h2>
+        <form onSubmit={handleCheckoutSubmit}>
+          <label>
+            First Name:
+            <input type="text" value={firstName} onChange={handleFirstNameChange} required />
+          </label>
+          <label>
+            Last Name:
+            <input type="text" value={lastName} onChange={handleLastNameChange} required />
+          </label>
+          <label>
+            Email:
+            <input type="email" value={email} onChange={handleEmailChange} required />
+          </label>
+          <label>
+            Payment Method:
+            <select>
+              <option value="credit-card">Credit Card</option>
+              <option value="paypal">PayPal</option>
+              <option value="bitcoin">Bitcoin</option>
             </select>
-          </div>
+          </label>
+          <button type="submit">Submit Payment</button>
         </form>
-        <Link to="/confirmation">
-          <button>Submit</button>
-        </Link>
       </div>
     </div>
   );

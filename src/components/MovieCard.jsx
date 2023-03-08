@@ -30,7 +30,8 @@ function MovieCard({ movie ,isLoggedIn}) {
         {/* <span>{movie.original_language.toUpperCase()}</span>
         {rating && <span className="movie-rating">{rating}</span>} */}
       </div>
-      {showPopup && <MoviePopup movie={movie} onClose={handleClose}/>}
+      {showPopup && <MoviePopup movie={movie} onClose={handleClose} isLoggedIn={isLoggedIn} />
+}
     </div>
   );
 }

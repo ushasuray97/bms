@@ -1,103 +1,38 @@
-.seats {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    width: 100%;
-  }
-.seats .row{
+.seat-booking-page {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 70%;
-  padding: 15px;
-}  
-.background-red {
-  background-color: red;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
 }
 
-.background-blue {
-  background-color: blue;
+.seat-map {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 500px;
+  margin: 20px;
 }
-.seats .row div{
-  border: 1px solid black;
-  border-radius: 2px;
-  width: 30px;
-  height: 30px;
-  text-align: center;
-  padding-top: 10px;
+
+.seat {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  margin: 5px;
+  background-color: #bfbfbf;
+  border-radius: 5px;
+  cursor: pointer;
 }
-  h2 {
-    font-size: 32px;
-    font-weight: bold;
-    margin-top: 30px;
-    margin-bottom: 20px;
-  }
-  
-  .screen {
-    width: 500px;
-    height: 20px;
-    background-color: #f2f2f2;
-    margin-top: 20px;
-    margin-bottom: 30px;
-  }
-  
-  .seat {
-    width: 40px;
-    height: 40px;
-    margin: 5px;
-    background-color: #e5e5e5;
-    border-radius: 5px;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 14px;
-    color: #666666;
-  }
-  
-  .seat.selected {
-    background-color: #00bfff;
-    color: #fff;
-  }
-  
-  .seat.reserved {
-    background-color: #ff6b6b;
-    cursor: not-allowed;
-  }
-  
-  .seat:not(.reserved):hover {
-    background-color: #ddd;
-  }
-  
-  .actions {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 30px;
-    margin-bottom: 20px;
-  }
-  
-  .booked-seats {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-bottom: 20px;
-  }
-  
-  .booked-seats .seat {
-    background-color: #ff6b6b;
-    cursor: pointer;
-  }
-  .book-button{
-    text-align: center;
-    margin-left: 30%;
-  }
-  .selSeats{
-    margin-left: 30%;
-  }
-  h3{
-    text-align: center;
-  }
+
+.seat.available {
+  background-color: #4caf50;
+}
+
+.seat.selected {
+  background-color: #2196f3;
+}
+
+.seat.booked {
+  background-color: #f44336;
+  cursor: not-allowed;
+}

@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import {Link, useNavigate } from "react-router-dom";
-import firebase from "../firebase";
+import firebase,{auth} from "../firebase";
 import './Login.css';
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
-const auth = getAuth();
-const LoginForm = () => {
+
+const LoginForm = ({setUser,setIsLoggedIn}) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState(null);
   const Navigate = useNavigate();
-
+  // const auth = getAuth();
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
   };
@@ -26,7 +26,9 @@ const LoginForm = () => {
       .then((userCredential) => {
     // Signed in 
         const user = userCredential.user;
-        Navigate('/booking');
+        setUser(user);
+        setIsLoggedIn(true);
+        Navigate('/');
     // ...
     })
     .catch((error) => {
